@@ -1,0 +1,44 @@
+import React from 'react'
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import ExamplesRegistry from '../../../App/Services/ExamplesRegistry'
+import Collapsible from 'react-native-collapsible';
+
+// Example
+ExamplesRegistry.addPluginExample('Collapsible', () =>
+  <View style={styles.container}>
+    <TouchableHighlight onPress={this._toggleExpanded}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Single Collapsible</Text>
+      </View>
+    </TouchableHighlight>
+    <Collapsible collapsed={this.state.collapsed} align="center">
+      <View style={styles.content}>
+        <Text style={styles.title}>My Title</Text>
+      </View>
+      <View style={styles.body}>
+            {this.props.children}
+      </View>
+    </Collapsible>
+  </View>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    margin: 10,
+    overflow: 'hidden'
+  },
+  header: {
+    backgroundColor: '#F5FCFF',
+    padding: 10,
+  },
+  headerText: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  body: {
+    padding: 10,
+    paddingTop: 0
+  }
+})
