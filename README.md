@@ -2,7 +2,7 @@
 
 If you'd like to use react native collapsible in your Ignite 2.0 app, simply type 
 ```sh
-ignite add ignite-collapsible  
+ignite add collapsible  
 ```
 
 An [ignite plugin](https://github.com/infinitered/ignite) for [react-native-collapsible](https://github.com/oblador/react-native-collapsible).
