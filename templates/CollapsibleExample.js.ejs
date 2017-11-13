@@ -1,26 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import ExamplesRegistry from '../../../App/Services/ExamplesRegistry'
 import Collapsible from 'react-native-collapsible';
-
-// Example
-ExamplesRegistry.addPluginExample('Collapsible', () =>
-  <View style={styles.container}>
-    <TouchableHighlight onPress={this._toggleExpanded}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Single Collapsible</Text>
-      </View>
-    </TouchableHighlight>
-    <Collapsible collapsed={this.state.collapsed} align="center">
-      <View style={styles.content}>
-        <Text style={styles.title}>My Title</Text>
-      </View>
-      <View style={styles.body}>
-            {this.props.children}
-      </View>
-    </Collapsible>
-  </View>
-)
 
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +19,40 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   body: {
+    backgroundColor: '#ff3b3a',
     padding: 10,
     paddingTop: 0
   }
 })
+
+class CollapsibleExample extends Component {
+  state = {
+    collapsed: true,
+  };
+
+  _toggleExpanded = () => {
+    this.setState({ collapsed: !this.state.collapsed });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableHighlight onPress={this._toggleExpanded}>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Tap to expand</Text>
+          </View>
+        </TouchableHighlight>
+        <Collapsible collapsed={this.state.collapsed} align="center">
+          <View style={styles.body}>
+            <Text style={styles.headerText}>Inner children</Text>
+          </View>
+        </Collapsible>
+      </View>
+    )
+  }
+}
+// Example
+
+ExamplesRegistry.addPluginExample('Collapsible', () =>
+<CollapsibleExample />
+)
