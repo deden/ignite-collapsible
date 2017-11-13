@@ -1,7 +1,7 @@
 {
   "name": "ignite-collapsible",
   "description": "An Ignite plugin which installs react-native-collapsible.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "author": {
     "name": "Deden Ramadhan",
