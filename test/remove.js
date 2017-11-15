@@ -12,6 +12,6 @@ test('removes Collapsible', async t => {
 
   await plugin.remove(context)
 
-  t.true(removeModule.calledWith('react-native-MODULENAME', { unlink: true }))
+  t.true(removeModule.calledWith('react-native-collapsible', { unlink: true }))
   t.true(removePluginComponentExample.calledWith('CollapsibleExample.js'))
 })
